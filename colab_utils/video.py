@@ -32,7 +32,6 @@ def show_short_video(file, seconds = 10):
 # from https://gist.github.com/HaydenFaulkner/54318fd3e9b9bdb66c5440c44e4e08b8#file-video_to_frames-py
 def video_to_frames(video_path, frames_dir, overwrite=False, every=1, chunk_size=1000):
 
-    import cv2
     """
     Extracts the frames from a video using multiprocessing
 
