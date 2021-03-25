@@ -3,6 +3,7 @@ from IPython.display import HTML
 from base64 import b64encode
 from ._video_to_frames import print_progress, extract_frames
 import os
+import cv2
 
 __all__ = ['show_short_video', 'video_to_frames']
 
