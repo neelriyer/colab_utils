@@ -3,6 +3,7 @@ from IPython.display import HTML
 from base64 import b64encode
 from _video_to_frames import print_progress, extract_frames
 
+__all__ = ['show_short_video', 'video_to_frames']
 
 def show_short_video(file, seconds = 10):
 
@@ -24,7 +25,8 @@ def show_short_video(file, seconds = 10):
   """ % data_url)
 
 
-def frame_extractor(video_path, frames_dir, overwrite=False, every=1, chunk_size=1000):
+# from https://gist.github.com/HaydenFaulkner/54318fd3e9b9bdb66c5440c44e4e08b8#file-video_to_frames-py
+def video_to_frames(video_path, frames_dir, overwrite=False, every=1, chunk_size=1000):
 
     """
     Extracts the frames from a video using multiprocessing
