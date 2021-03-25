@@ -1,7 +1,7 @@
 from pathlib import Path
 from IPython.display import HTML
 from base64 import b64encode
-from _video_to_frames import print_progress, extract_frames
+from ._video_to_frames import print_progress, extract_frames
 import os
 
 __all__ = ['show_short_video', 'video_to_frames']
