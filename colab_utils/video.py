@@ -3,7 +3,6 @@ from IPython.display import HTML
 from base64 import b64encode
 from ._video_to_frames import video_to_frames
 import os
-import cv2
 
 
 __all__ = ['show_short_video', 'video_to_frames']
@@ -17,7 +16,7 @@ def show_short_video(file, seconds = 10):
   print(output_file)
 
   end_time = '00:00:'+str(seconds)
-  cmd = 'ffmpeg -loglevel warning -y -ss 00:00:00 -i '+file+' -c copy -t '+end_time + ' ' + output_file
+  cmd = 'ffmpeg -loglevel warning -y -ss 00:00:00 -i '+str(file)+' -c copy -t '+str(end_time) + ' ' + str(output_file)
   os.system(cmd)
   
   mp4 = open(output_file,'rb').read()

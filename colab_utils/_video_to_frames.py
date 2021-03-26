@@ -85,8 +85,6 @@ def extract_frames(video_path, frames_dir, overwrite=False, start=-1, end=-1, ev
 	return saved_count  # and return the count of the images we saved
 
 
-
-
 # from https://gist.github.com/HaydenFaulkner/54318fd3e9b9bdb66c5440c44e4e08b8#file-video_to_frames-py
 def video_to_frames(video_path, frames_dir, overwrite=False, every=1, chunk_size=1000):
 
