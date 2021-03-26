@@ -17,7 +17,7 @@ def show_short_video(file, seconds = 10):
 
   end_time = '00:00:'+str(seconds)
   cmd = 'ffmpeg -loglevel warning -y -ss 00:00:00 -i '+str(file)+' -c copy -t '+str(end_time) + ' ' + str(output_file)
-  os.system(cmd)
+  os.system(cmd) # TODO use subprocess.call instead of os.system
   
   mp4 = open(output_file,'rb').read()
   data_url = "data:video/mp4;base64," + b64encode(mp4).decode()
