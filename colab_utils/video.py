@@ -4,7 +4,6 @@ from base64 import b64encode
 from ._video_to_frames import video_to_frames
 import os
 
-
 __all__ = ['show_short_video', 'video_to_frames']
 
 def show_short_video(file, seconds = 10):
