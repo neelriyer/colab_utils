@@ -2,9 +2,10 @@ from pathlib import Path
 from IPython.display import HTML
 from base64 import b64encode
 from ._video_to_frames import video_to_frames
+from ._combine_video import _write_videos_to_txt
 import os
 
-__all__ = ['show_short_video', 'video_to_frames']
+__all__ = ['show_short_video', 'video_to_frames', 'combine_videos']
 
 def show_short_video(file, seconds = 10):
 
@@ -26,9 +27,17 @@ def show_short_video(file, seconds = 10):
   </video>
   """ % data_url)
 
-
 def frame_extractor(video_path, frames_dir, overwrite=False, every=1, chunk_size=1000):
   video_to_frames(video_path, frames_dir, overwrite, every, chunk_size)
+
+def combine_videos(folder, output, merge_file = 'merge_file.txt'):
+
+  # write all videos to txt
+  _write_videos_to_txt(merge_file, folder)
+
+  # combine videos (TODO: replace with ffmpy)
+  cmd = 'ffmpeg -loglevel warning -y -f concat -safe 0 -i ' + str(merge_file) + ' -c copy ' + str(output)
+  subprocess.run(cmd.split(' '))
 
 
 
